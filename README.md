@@ -68,4 +68,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 0ef6d72d174f66164b4b3d6e9ebce687 token
-expense-aman.surge.sh
+Expense-aman.surge.sh
