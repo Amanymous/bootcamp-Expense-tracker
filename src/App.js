@@ -1,12 +1,13 @@
 import React from 'react';
 import { Child } from './Child';
 import './App.css';
+import { TransactionProvider } from './transContext';
 
 function App() {
   return (
-    <div className="App">
+    <TransactionProvider className="App">
       <Child />
-    </div>
+    </TransactionProvider>
   );
 }
 

@@ -4,7 +4,7 @@ import { TransactionContext } from './transContext';
 import './App.css';
 
 export function Child() {
-  let transactions = useContext(TransactionContext);
+  let { transactions } = useContext(TransactionContext);
   return (
     <div className="child">
       <h1>Expense Tracker By Aman Mirza</h1>
