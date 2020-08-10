@@ -1,10 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { TransactionContext } from './transContext';
 
 import './App.css';
 
 export function Child() {
   let { transactions } = useContext(TransactionContext);
+  let [newDescription, setDescription] = useState('');
+  let [newAmount, setAmount] = useState(0);
+  // console.log(transactions);
+
+  const handleAddition = (event) => {
+    event.preventDefault();
+    console.log(newAmount, newDescription);
+  };
   return (
     <div className="child">
       <h1>Expense Tracker By Aman Mirza</h1>
@@ -36,7 +44,7 @@ export function Child() {
       <ul className="transaction-list">
         {transactions.map((transObj, index) => {
           return (
-            <li>
+            <li key={index}>
               <span>{transObj.description}</span>
               <span>{transObj.amount}</span>
             </li>
@@ -44,15 +52,23 @@ export function Child() {
         })}
       </ul>
       <h3>Add New Transaction</h3>
-      <form className="Transaction-form ">
+      <form className="Transaction-form" onSubmit={handleAddition}>
         <label>
           Enter Description <br />
-          <input type="text" required />
+          <input
+            type="text"
+            onChange={(ev) => setDescription(ev.target.value)}
+            required
+          />
         </label>
         <br />
         <label>
           Enter Amount <br />
-          <input type="number" required />
+          <input
+            type="number"
+            onChange={(ev) => setAmount(ev.target.value)}
+            required
+          />
         </label>
         <br />
         <input type="submit" value="Add Your Transaction" />
