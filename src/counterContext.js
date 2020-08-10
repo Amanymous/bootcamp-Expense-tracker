@@ -1,3 +1,3 @@
 import React, { createContext } from 'react';
 
-export const counterContext = createContext(5);
+export const counterContext = createContext(0);
