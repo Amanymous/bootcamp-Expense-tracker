@@ -6,7 +6,7 @@ a {
   max-width: 400px;
   min-height: 450px;
   margin: 0 auto;
-  background-color: white;
+  background-color: lightskyblue;
   box-shadow: 0 0 10px lightslategray;
   margin-top: 55px;
   padding: 15px 50px;
@@ -17,22 +17,23 @@ a {
   box-shadow: 0 0 10px lightslategray;
   margin-top: 55px;
   justify-content: space-around;
-  background-color: white;
+  background-color: yellow;
 }
 
 .Transaction-form input {
   width: 100%;
   margin: 10px 0;
-  padding: 5px 0;
+  padding: 5px 5px;
 }
 
 .transaction-list > li {
   display: flex;
   justify-content: space-between;
   box-shadow: 0 0 10px gray;
-  padding: 5px 2px;
+  padding: 5px 15px;
   margin: 5px 0;
   background-color: whitesmoke;
+  border-radius: 4px;
 }
 
 .transaction-list {

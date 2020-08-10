@@ -4,14 +4,39 @@ import { TransactionContext } from './transContext';
 import './App.css';
 
 export function Child() {
-  let { transactions } = useContext(TransactionContext);
+  let { transactions, addTransaction } = useContext(TransactionContext);
   let [newDescription, setDescription] = useState('');
   let [newAmount, setAmount] = useState(0);
   // console.log(transactions);
 
   const handleAddition = (event) => {
     event.preventDefault();
-    console.log(newAmount, newDescription);
+    if (Number(newAmount) === 0) {
+      alert('Enter value not 0');
+      return false;
+    }
+    // console.log(newAmount, newDescription);
+    addTransaction({
+      amount: Number(newAmount),
+      description: newDescription,
+    });
+    setDescription('');
+    setAmount('');
+  };
+  const getIncome = () => {
+    let income = 0;
+    for (var i = 0; i < transactions.length; i++) {
+      if (transactions[i].amount > 0) income += transactions[i].amount;
+    }
+    return income;
+  };
+
+  const getExpense = () => {
+    let expense = 0;
+    for (var i = 0; i < transactions.length; i++) {
+      if (transactions[i].amount < 0) expense += transactions[i].amount;
+    }
+    return expense;
   };
   return (
     <div className="child">
@@ -27,16 +52,14 @@ export function Child() {
       </h2>
       <h3>
         Your Balance <br />
-        $300
+        {getIncome() + getExpense()}
       </h3>
       <div className="expense-cont">
         <h3>
-          INCOME <br />
-          $1000
+          Income <br /> {getIncome()}{' '}
         </h3>
         <h3>
-          EXPENSE <br />
-          $500
+          Expense <br /> {getExpense()}
         </h3>
       </div>
       <h3>History</h3>
@@ -56,6 +79,7 @@ export function Child() {
         <label>
           Enter Description <br />
           <input
+            value={newDescription}
             type="text"
             onChange={(ev) => setDescription(ev.target.value)}
             required
@@ -65,6 +89,7 @@ export function Child() {
         <label>
           Enter Amount <br />
           <input
+            value={newAmount}
             type="number"
             onChange={(ev) => setAmount(ev.target.value)}
             required
