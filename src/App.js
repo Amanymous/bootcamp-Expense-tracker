@@ -1,13 +1,23 @@
 import React from 'react';
-import { Child } from './Child';
 import './App.css';
-import { TransactionProvider } from './transContext';
+import { Header } from './conponents/UI/header';
+import { Balance } from './conponents/UI/balance';
+import { IncomeExpenses } from './conponents/UI/IncomeExpense';
+import { TransactionList } from './conponents/UI/TransactionList';
+import { AddTransaction } from './conponents/UI/AddTransaction';
+import { GlobalProvider } from './conponents/context/globalState';
 
 function App() {
   return (
-    <TransactionProvider className="App">
-      <Child />
-    </TransactionProvider>
+    <GlobalProvider>
+      <Header />
+      <div className="container">
+        <Balance />
+        <IncomeExpenses />
+        <TransactionList />
+        <AddTransaction />
+      </div>
+    </GlobalProvider>
   );
 }
 
